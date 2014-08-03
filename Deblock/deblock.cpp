@@ -166,9 +166,6 @@ Deblock::Deblock(PClip child, int quant, int a_offset, int b_offset, IScriptEnvi
     if (quant < 0 || quant > MAX_QUANT) {
         env->ThrowError("Deblock: quant must be between 0 and %i", MAX_QUANT);
     }
-    int a_offset_ = clip(a_offset, -quant, MAX_QUANT - quant);
-    int b_offset_ = clip(b_offset, -quant, MAX_QUANT - quant);
-
     if (!vi.IsPlanar()) {
         env->ThrowError("Deblock: only planar input is supported");
     }
